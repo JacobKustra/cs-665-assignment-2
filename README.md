@@ -1,29 +1,69 @@
 
 | CS-665       | Software Design & Patterns |
 |--------------|----------------------------|
-| Name         | FIRST_NAME LAST_NAME       |
-| Date         | MM/DD/YYYY                 |
-| Course       | Fall / Spring / Summer     |
-| Assignment # |                            |
+| Name         | Jacob Kustra               |
+| Date         | 11/23/1999                 |
+| Course       | Fall                       |
+| Assignment # | 2                          |
 
 # Assignment Overview
-Please add a paragraph or two overviewing the objectives of the assignment.
+For assignment 2, my task was to create a notification system that goes out 
+to all Drivers, regardless of if they are in a Taxi, Scooter or Van, and notifies
+them about the fact that the order has been generated along with the size of the 
+order.
+
+# Assignment Assumptions
+I am assuming that these local freelance drivers will be notified of all the 
+orders that are generated, however depending on their vehicle size, they will
+not go on to accept the order unless they have the capacity, with Scooter fitting 10,
+Taxi fitting 20 and Van fitting 30. Additionally, I am assuming that the specialized
+vehicle specific driver classes will be specifically generated based on their when 
+the driver tells the system admin they will be able to pick up orders for the day, 
+and the admin will create their "instance" in the system and name them appropriately.
 
 # GitHub Repository Link:
-https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
+https://github.com/JacobKustra/cs-665-assignment-2
 
 # Implementation Description 
-
+For this assignment, a new shop instance must be generated. Once generated it is now 
+in the system. Then the shop creates an order, which will simulate an order placed by a 
+customer and will be a randomized size. Then the system will need to create a new delivery 
+request, and add the drivers that will be driving that day. Finally, the system will print 
+that they are looking for delivery drivers for that specific order while stating the size 
+and send those requests to all the drivers for the drivers to see if they are able to accept 
+it based on their vehicle size.
 
 For each assignment, please answer the following:
 
 - Explain the level of flexibility in your implementation, including how new object types can
-be easily added or removed in the future.
+be easily added or removed in the future. 
+  - My implementation is very flexible, as new drivers can be added via new instances depending
+  on their vehicles and additional vehicle types/drivers can be added very easily as they would
+  be as simple as adding a new child class similar to the current ones, such as ScooterDriver, or 
+  Van Driver. Drivers can also easily be added/removed from the order delivery request 
+  notifications via simple method calls.
+
 - Discuss the simplicity and understandability of your implementation, ensuring that it is
 easy for others to read and maintain.
+  - I believe I implemented this in a very simple and understandable way as everything is clearly 
+  labeled for what is contained in each class and the work flow is what someone would expect to 
+  follow as a store, creates orders, which then can create a delivery request based on that order 
+  size, and then finally have that delivery request sent to all drivers. Everything is very clearly
+  separated as well to allow for quick changes in flow/process if needed in the future.
+
+
 - Describe how you have avoided duplicated code and why it is important.
+  - I avoided duplicated code through the use of the Observer Design pattern, to avoid multiple 
+  method calls for each instance where an observer needed to be notified of a change to the subject, 
+  in this case a new delivery request. Also, I used child classes for the driver types, which 
+  extend parent classes to avoid having to duplicate variable creation.
+
+
 - If applicable, mention any design patterns you have used and explain why they were
 chosen.
+  - In this assignment I used the Observer design pattern in which the various driver types, such 
+  as ScooterDriver, TaxiDriver and VanDriver are observers that are receiving notifications when 
+  there is a new DeliveryRequest created for an order.
 
 
 # Maven Commands

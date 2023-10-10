@@ -6,14 +6,13 @@
  * Description: This class is responsible for the methods and attributes of a Person.
  */
 
-package edu.bu.met.cs665.example1;
+package edu.bu.met.cs665.assign2;
 
 /**
  * This is the Person class.
  * This class is responsible for representing a Person.
  */
 public class Person {
-
   private String firstName;
   private String lastName;
 
